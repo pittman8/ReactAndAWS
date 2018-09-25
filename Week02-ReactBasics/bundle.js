@@ -81,10 +81,50 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./main.js");
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./ReactBasicsStatelessFunctional.js":
+/*!*******************************************!*\
+  !*** ./ReactBasicsStatelessFunctional.js ***!
+  \*******************************************/
+/*! exports provided: ReactBasics */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReactBasics", function() { return ReactBasics; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var ReactBasics = function ReactBasics() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "An H1 element in a React Stateless Function");
+};
+
+/***/ }),
+
+/***/ "./main.js":
+/*!*****************!*\
+  !*** ./main.js ***!
+  \*****************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ReactBasicsStatelessFunctional_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReactBasicsStatelessFunctional.js */ "./ReactBasicsStatelessFunctional.js");
+
+
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReactBasicsStatelessFunctional_js__WEBPACK_IMPORTED_MODULE_2__["ReactBasics"], null), document.getElementById('root'));
+
+/***/ }),
 
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
@@ -21290,46 +21330,6 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/schedule-tracing.development.js */ "./node_modules/schedule/cjs/schedule-tracing.development.js");
 }
 
-
-/***/ }),
-
-/***/ "./src/ReactBasicsStatelessFunctional.js":
-/*!***********************************************!*\
-  !*** ./src/ReactBasicsStatelessFunctional.js ***!
-  \***********************************************/
-/*! exports provided: ReactBasics */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReactBasics", function() { return ReactBasics; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var ReactBasics = function ReactBasics() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "An H1 element in a React Stateless Function");
-};
-
-/***/ }),
-
-/***/ "./src/main.js":
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ReactBasicsStatelessFunctional_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReactBasicsStatelessFunctional.js */ "./src/ReactBasicsStatelessFunctional.js");
-
-
-
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReactBasicsStatelessFunctional_js__WEBPACK_IMPORTED_MODULE_2__["ReactBasics"], null), document.getElementById('root'));
 
 /***/ })
 
