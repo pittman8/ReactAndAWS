@@ -12,7 +12,8 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '8080');
+//var port = normalizePort(process.env.PORT || '8080'); for Cloud9
+var port = normalizePort(process.env.SERVER_PORT || '30026'); // for Pristine Lubuntu
 app.set('port', port);
 
 /**
