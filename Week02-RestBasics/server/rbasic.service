@@ -13,7 +13,7 @@ SyslogIdentifier=rbasic
 User=bcuser
 Group=bcuser
 Environment=NODE_ENV=production
-Environment=RBASIC_PORT=30027
+Environment=RBASIC_PORT=30026
 
 [Install]
 WantedBy=multi-user.target
