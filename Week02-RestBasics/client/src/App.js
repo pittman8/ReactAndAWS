@@ -7,8 +7,8 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            file: 'File name will be placed here.',
-            status: 'waiting for server'
+            file: 'unknown',
+            status: 'waiting'
         };
     }
 
@@ -27,6 +27,12 @@ class App extends Component {
             });
     };
 
+    getFile = () => {
+        console.log('getFile called.');
+        this.setState({file: 'url-file.js'})
+    };
+
+
     render() {
         return (
             <div className="App">
@@ -36,9 +42,13 @@ class App extends Component {
                 </div>
 
                 <p className="App-intro">
-                    state: {this.state.status} file: {this.state.file}
+                    state: {this.state.status}
+                </p>
+                <p className="App-intro">
+                    file: {this.state.file}
                 </p>
                 <button onClick={this.queryServer}>Bar</button>
+                <button id='getFile' onClick={this.getFile}>Get File</button>
             </div>
         );
     }
