@@ -11,8 +11,8 @@ var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
-var port = normalizePort(process.env.SERVER_PORT || '30026');
-//var port = normalizePort(process.env.RBASIC_PORT || '30026'); // for Pristine Lubuntu
+//var port = normalizePort(process.env.SERVER_PORT || '30026');
+var port = normalizePort(process.env.RBASIC_PORT || '30026'); // for Pristine Lubuntu
 app.set('port', port);
 
 /**
