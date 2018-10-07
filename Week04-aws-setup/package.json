@@ -1,0 +1,22 @@
+{
+  "name": "week04-aws-setup",
+  "version": "1.0.0",
+  "description": "aws setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pittman8/isit320-pittman-2018.git"
+  },
+  "author": "Hannah Pittman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pittman8/isit320-pittman-2018/issues"
+  },
+  "homepage": "https://github.com/pittman8/isit320-pittman-2018#readme",
+  "dependencies": {
+    "aws-sdk": "^2.329.0"
+  }
+}
