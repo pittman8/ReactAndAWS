@@ -12,13 +12,28 @@ class App extends Component {
 
     queryServer = () => {
         const that = this;
-        fetch('/index/foo')
+        fetch('/foo')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
                 that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log('parsing failed, URL bad, network down, or similar', ex);
+            });
+    };
+
+    createEducate = () => {
+        //const that = this;
+        fetch('/create-educate')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => (json));
             })
             .catch(function(ex) {
                 console.log('parsing failed, URL bad, network down, or similar', ex);
@@ -37,6 +52,9 @@ class App extends Component {
                     state: {this.state.status} file: {this.state.file}
                 </p>
                 <button onClick={this.queryServer}>Bar</button>
+                <br />
+                <button onClick={this.createEducate}>Create Educate</button>
+                <br />
                 <button id='getFile' onClick={this.getFile}>Get File</button>
             </div>
         );
