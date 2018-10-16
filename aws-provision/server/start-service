@@ -1,0 +1,4 @@
+#! /bin/bash
+
+sudo systemctl enable aws.service
+sudo systemctl start aws.service

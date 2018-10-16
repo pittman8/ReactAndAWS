@@ -40,9 +40,24 @@ class App extends Component {
             });
     };
 
-    getFile = () => {
-        console.log('getFile called.');
-        this.setState({file: 'url-file.js'})
+    createWithAwsStandardAccount = () => {
+
+    };
+
+    associateElasticIp = () => {
+
+    };
+
+    copyGetStarted = () => {
+
+    };
+
+    runGetStarted = () => {
+
+    };
+
+    removeKnownHost = () => {
+
     };
 
     render() {
@@ -52,10 +67,14 @@ class App extends Component {
                     state: {this.state.status} file: {this.state.file}
                 </p>
                 <button onClick={this.queryServer}>Bar</button>
-                <br />
-                <button onClick={this.createEducate}>Create Educate</button>
-                <br />
-                <button id='getFile' onClick={this.getFile}>Get File</button>
+                <br /> <br />
+                <button onClick={this.createEducate}>Create with AWS Educate Account</button>
+                <button onClick={this.createWithAwsStandardAccount}>Create with AWS Standard Account</button>
+                <button onClick={this.associateElasticIp}>Associate Elastic Ip</button>
+                <br /> <br />
+                <button onClick={this.copyGetStarted}>Copy the GetStarted Script</button>
+                <button onClick={this.runGetStarted}>Run the GetStarted Script</button>
+                <button onClick={this.removeKnownHost}>Remove From KnownHost</button>
             </div>
         );
     }

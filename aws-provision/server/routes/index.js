@@ -21,4 +21,16 @@ router.get('/create-educate', function(request, response) {
     response.send({result: 'success'});
 });
 
+router.get('/create-standard', function(request, response) {
+    // const awsInstanceParams = getAwsInstanceParams.awsEducate();
+    // createInstance(awsInstanceParams);
+    response.send({result: 'success'});
+});
+
+router.get('/associate-elastic-ip', function(request, response) {
+    // const awsInstanceParams = getAwsInstanceParams.awsEducate();
+    // createInstance(awsInstanceParams);
+    response.send({result: 'success'});
+});
+
 module.exports = router;
