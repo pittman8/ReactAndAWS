@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 
 # You must define the following two environment variables.
 # Then run: source setup-environment-service
-export SYSTEMD_PROJECT_NAME=aws
+export SYSTEMD_PROJECT_NAME="aws"
 export DESCRIPTION="Run AWS Server"
 
 # This export does not need to be edited. It is derived from the lines above.
