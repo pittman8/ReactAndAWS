@@ -1,5 +1,5 @@
 [Unit]
-Description=DESCRIPTION
+Description=Run AWS Server
 
 [Service]
 ExecStart=/home/bcuser/npm/bin/npm run start-service
