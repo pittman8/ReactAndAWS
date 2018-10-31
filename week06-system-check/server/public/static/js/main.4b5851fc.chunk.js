@@ -33,7 +33,7 @@
                                     })
                                     .then(function(t) {
                                         console.log('parsed json', t.allData),
-                                            e.setState({ allData: t.allData });
+                                        e.setState({ allData: t.allData });
                                     })
                                     .catch(function(e) {
                                         console.log(
@@ -96,7 +96,7 @@
                 o.a.createElement(p, null),
                 document.getElementById('root')
             ),
-                'serviceWorker' in navigator &&
+            'serviceWorker' in navigator &&
                     navigator.serviceWorker.ready.then(function(e) {
                         e.unregister();
                     });
