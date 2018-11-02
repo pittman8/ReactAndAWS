@@ -28,23 +28,23 @@ class App extends Component {
             });
     };
 
-    copyVersionCheck = () => {
-        const that = this;
-        fetch('/script-pusher/copy-version')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json.allData);
-                that.setState({allData: json.allData});
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
+    // copyVersionCheck = () => {
+    //     const that = this;
+    //     fetch('/script-pusher/copy-version')
+    //         .then(function(response) {
+    //             return response.json();
+    //         })
+    //         .then(function(json) {
+    //             console.log('parsed json', json.allData);
+    //             that.setState({allData: json.allData});
+    //         })
+    //         .catch(function(ex) {
+    //             console.log(
+    //                 'parsing failed, URL bad, network down, or similar',
+    //                 ex
+    //             );
+    //         });
+    // };
 
     handleChange = (event) => {
         const selectedValue = event.target.value;
@@ -61,11 +61,11 @@ class App extends Component {
             allData: '',
         });
         console.log('A name was submitted: ', this.state);
-        if (this.state.selectedValue === 'cpu') {
-            this.copyCPUInfo(this.state.selectedValue);
-        } else {
-            this.copyVersionCheck(this.state.selectedValue);
-        }
+        //if (this.state.selectedValue === 'cpu') {
+        this.copyCPUInfo(this.state.selectedValue);
+        // } else {
+        //     this.copyVersionCheck(this.state.selectedValue);
+        // }
         event.preventDefault();
     };
 
