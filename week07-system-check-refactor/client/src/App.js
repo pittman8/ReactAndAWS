@@ -5,50 +5,12 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script='];
         this.state = {
-            allData: 'unknown',
-            selectedValue: '',
-            endPointIndex: 0
+            allData: 'unknown'
         };
     }
 
-    runScript = (path, script) => {
-        const that = this;
-        if (!script) {
-            return;
-        }
-        fetch(path + script)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (json) {
-                console.log('allData', json.allData);
-                console.log('result', json.result);
-                console.log('code', json.code);
-                console.log('error', json.error);
-                let info = '';
-                if (json.result === 'error') {
-                    info = json.error;
-                } else if (script === 'CpuInfo') {
-                    var regex1 = RegExp('model name.*', 'g');
-                    let array1 = regex1.exec(json.allData);
-                    while (array1 !== null) {
-                        info += array1[0] + '\n';
-                        console.log(`Found ${array1[0]}.`);
-                        array1 = regex1.exec(json.allData);
-                    }
-                } else {
-                    info = json.allData;
-                }
-                that.setState({allData: info});
-            })
-            .catch(function (ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
-            });
-    };
-
-    copyFile = () => {
+    copyCPUInfo = () => {
         const that = this;
         fetch('/script-pusher/copy-file')
             .then(function(response) {
@@ -66,22 +28,44 @@ class App extends Component {
             });
     };
 
+    copyVersionCheck = () => {
+        const that = this;
+        fetch('/script-pusher/copy-version')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json.allData);
+                that.setState({allData: json.allData});
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+
     handleChange = (event) => {
         const selectedValue = event.target.value;
-        const endPointIndex = event.target.getAttribute('data-endpoint');
         console.log('HANDLE CHANGE', selectedValue);
         this.setState({
             ...this.state,
             selectedValue: selectedValue,
-            endPointIndex: endPointIndex
         });
 
     };
 
     handleSubmit = (event) => {
-        this.setState({allData: ''});
+        this.setState({
+            allData: '',
+        });
         console.log('A name was submitted: ', this.state);
-        this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
+        if (this.state.selectedValue === 'cpu') {
+            this.copyCPUInfo(this.state.selectedValue);
+        } else {
+            this.copyVersionCheck(this.state.selectedValue);
+        }
         event.preventDefault();
     };
 
@@ -127,7 +111,7 @@ class App extends Component {
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
-                    <button onClick={this.copyFile}>Copy File</button>
+                    <button onClick={this.copyCPUInfo}>Copy File</button>
                 </main>
             </div>
         );
