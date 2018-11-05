@@ -1,0 +1,8 @@
+**/registerServiceWorker.js
+**/bundle.js
+.git
+**/node_modules/**
+**/bower_components/**
+**/coverage/**
+**public/static**
+/public/static/ service-worker.js precache-manifest.*.js
