@@ -32,13 +32,13 @@ const copyCPUInfo = () => {
 
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.log('PUSH', data);
         });
 
         pushScript.stderr.on('data', data => {
             console.log(`child stderr:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.error('PUSH', data);
         });
 
@@ -67,13 +67,13 @@ const scriptRunner = (path, script) => {
 
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.log('PUSH', data);
         });
 
         pushScript.stderr.on('data', data => {
             console.log(`child stderr:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.error('PUSH', data);
         });
 
@@ -96,6 +96,7 @@ const scriptRunner = (path, script) => {
 
 router.get('/copy-file', function(request, response) {
     'use strict';
+    allData = '';
     copyCPUInfo()
         .then(result => {
             console.log(JSON.stringify(result, null, 4));

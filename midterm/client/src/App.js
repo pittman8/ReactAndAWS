@@ -8,7 +8,7 @@ class App extends Component {
         this.dataEndPoints = [
             '/script-pusher/run-script?script=',
             '/script-pusher/run-system-tool?script=',
-            '/ssh-runner'
+            '/ssh-runner/'
         ];
         this.state = {
             allData: '',
@@ -25,7 +25,7 @@ class App extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json.allData);
-                that.setState({allData: json.allData});
+                that.setState({ allData: json.allData });
             })
             .catch(function(ex) {
                 console.log(
@@ -128,6 +128,32 @@ class App extends Component {
                                 name="app-choice"
                                 data-endpoint="1"
                                 value="uptime"
+                                id="elf-uptime-web"
+                                onChange={this.handleChange}
+                            />
+                            <label htmlFor="elf-uptime-web">Uptime</label>
+                        </div>
+                        <div className="form-group">
+                            <button type="submit" className="btn btn-primary">
+                                Run System Script
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        );
+
+        const radioRemote = (
+            <div className="container">
+                <form onSubmit={this.handleSubmit}>
+                    <fieldset>
+                        <div className="elf-form-field">
+                            <legend>Remote Services</legend>
+                            <input
+                                type="radio"
+                                name="app-choice"
+                                data-endpoint="2"
+                                value="uptime"
                                 id="elf-uptime-remote"
                                 onChange={this.handleChange}
                             />
@@ -145,9 +171,10 @@ class App extends Component {
 
         return (
             <div className="App">
-                <ElfHeader/>
+                <ElfHeader />
                 <main>
                     <section>{radioWeb}</section>
+                    <section>{radioRemote}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
