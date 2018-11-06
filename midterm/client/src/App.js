@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
+import ElfHeader from './ElfHeader';
 
 class App extends Component {
-
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script='];
+        this.dataEndPoints = [
+            '/script-pusher/run-script?script=',
+            '/script-pusher/run-system-tool?script=',
+            '/ssh-runner'
+        ];
         this.state = {
             allData: '',
             selectedValue: '',
@@ -31,34 +35,16 @@ class App extends Component {
             });
     };
 
-    // copyVersionCheck = () => {
-    //     const that = this;
-    //     fetch('/script-pusher/copy-version')
-    //         .then(function(response) {
-    //             return response.json();
-    //         })
-    //         .then(function(json) {
-    //             console.log('parsed json', json.allData);
-    //             that.setState({allData: json.allData});
-    //         })
-    //         .catch(function(ex) {
-    //             console.log(
-    //                 'parsing failed, URL bad, network down, or similar',
-    //                 ex
-    //             );
-    //         });
-    // };
-
     runScript = (path, script) => {
         const that = this;
         if (!script) {
             return;
         }
         fetch(path + script)
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
             })
-            .then(function (json) {
+            .then(function(json) {
                 console.log('allData', json.allData);
                 console.log('result', json.result);
                 console.log('code', json.code);
@@ -77,14 +63,17 @@ class App extends Component {
                 } else {
                     info = json.allData;
                 }
-                that.setState({allData: info});
+                that.setState({ allData: info });
             })
-            .catch(function (ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
             });
     };
 
-    handleChange = (event) => {
+    handleChange = event => {
         const selectedValue = event.target.value;
         const endPointIndex = event.target.getAttribute('data-endpoint');
         console.log('HANDLE CHANGE', selectedValue);
@@ -93,13 +82,15 @@ class App extends Component {
             selectedValue: selectedValue,
             endPointIndex: endPointIndex
         });
-
     };
 
-    handleSubmit = (event) => {
-        this.setState({allData: ''});
+    handleSubmit = event => {
+        this.setState({ allData: '' });
         console.log('A name was submitted: ', this.state);
-        this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
+        this.runScript(
+            this.dataEndPoints[this.state.endPointIndex],
+            this.state.selectedValue
+        );
         event.preventDefault();
     };
 
@@ -109,7 +100,6 @@ class App extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <fieldset>
                         <div className="elf-form-field">
-
                             <legend>Services</legend>
                             <input
                                 type="radio"
@@ -129,21 +119,24 @@ class App extends Component {
                                 id="elf-radio-version"
                                 onChange={this.handleChange}
                             />
-                            <label htmlFor="elf-radio-version">Version Info</label>
+                            <label htmlFor="elf-radio-version">
+                                Version Info
+                            </label>
 
                             <input
                                 type="radio"
                                 name="app-choice"
-                                data-endpoint="0"
-                                value="Uptime"
-                                id="elf-radio-uptime"
+                                data-endpoint="1"
+                                value="uptime"
+                                id="elf-uptime-remote"
                                 onChange={this.handleChange}
                             />
-                            <label htmlFor="elf-radio-uptime">Uptime</label>
+                            <label htmlFor="elf-uptime-remote">Uptime</label>
                         </div>
-
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary">Run System Script</button>
+                            <button type="submit" className="btn btn-primary">
+                                Run System Script
+                            </button>
                         </div>
                     </fieldset>
                 </form>
@@ -152,17 +145,13 @@ class App extends Component {
 
         return (
             <div className="App">
-                <header>
-                    <h1>System Check</h1>
-                </header>
+                <ElfHeader/>
                 <main>
-                    <section>
-                        {radioWeb}
-                    </section>
+                    <section>{radioWeb}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
-                    <button onClick={this.copyCPUInfo}>Copy File</button>
+                    <button onClick={this.copyCPUInfo}>Run Foo</button>
                 </main>
             </div>
         );

@@ -16,9 +16,9 @@ const runCpuInfo = (hostAddress, response) => {
                 .on('close', function(code, signal) {
                     console.log(
                         'Stream :: close :: code: ' +
-                        code +
-                        ', signal: ' +
-                        signal
+                            code +
+                            ', signal: ' +
+                            signal
                     );
                     conn.end();
                     response.send({ result: 'success', allData: allData });
