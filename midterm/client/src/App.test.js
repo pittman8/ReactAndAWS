@@ -25,9 +25,13 @@ describe('basic suite', () => {
 
     it('contains end paragraph', () => {
         const wrapper = shallow(<App />);
-        const unknown = <p>Completed by Hannah Pittman
-            <br/>ISIT 320 Fall 2018 Charlie Calvert
-        </p>;
+        const unknown = (
+            <p>
+                Completed by Hannah Pittman
+                <br />
+                ISIT 320 Fall 2018 Charlie Calvert
+            </p>
+        );
         expect(wrapper.contains(unknown)).toEqual(true);
         elfDebugEnzyme.getLast(wrapper, 'p', true);
         console.log('TESTER', wrapper.find('p').debug());
@@ -56,5 +60,4 @@ describe('basic suite', () => {
         const unknown = <label htmlFor="elf-uptime-remote">Uptime</label>;
         expect(wrapper.contains(unknown)).toEqual(true);
     });
-
 });

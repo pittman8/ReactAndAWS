@@ -96,7 +96,6 @@ const scriptRunner = (path, script) => {
     });
 };
 
-
 router.get('/copy-file', function(request, response) {
     'use strict';
     copyCPUInfo()

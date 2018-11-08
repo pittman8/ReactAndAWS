@@ -182,7 +182,7 @@ class App extends Component {
                 </main>
                 <p>
                     Completed by Hannah Pittman
-                    <br/>
+                    <br />
                     ISIT 320 Fall 2018 Charlie Calvert
                 </p>
             </div>
