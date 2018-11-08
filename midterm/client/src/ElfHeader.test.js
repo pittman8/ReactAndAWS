@@ -9,6 +9,7 @@ import elfDebugEnzyme from './ElfDebugEnzyme';
 configure({ adapter: new Adapter() });
 
 describe('basic suite', () => {
+
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<ElfHeader />, div);

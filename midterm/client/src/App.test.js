@@ -22,4 +22,39 @@ describe('basic suite', () => {
         elfDebugEnzyme.getLast(wrapper, 'ElfHeader', true);
         console.log('TESTER', wrapper.find('ElfHeader').debug());
     });
+
+    it('contains end paragraph', () => {
+        const wrapper = shallow(<App />);
+        const unknown = <p>Completed by Hannah Pittman
+            <br/>ISIT 320 Fall 2018 Charlie Calvert
+        </p>;
+        expect(wrapper.contains(unknown)).toEqual(true);
+        elfDebugEnzyme.getLast(wrapper, 'p', true);
+        console.log('TESTER', wrapper.find('p').debug());
+    });
+
+    it('contains label for CpuInfo', () => {
+        const wrapper = shallow(<App />);
+        const unknown = <label htmlFor="elf-radio-cpu">CpuInfo</label>;
+        expect(wrapper.contains(unknown)).toEqual(true);
+    });
+
+    it('contains label for VersionCheck', () => {
+        const wrapper = shallow(<App />);
+        const unknown = <label htmlFor="elf-radio-version">Version Info</label>;
+        expect(wrapper.contains(unknown)).toEqual(true);
+    });
+
+    it('contains label for Uptime web', () => {
+        const wrapper = shallow(<App />);
+        const unknown = <label htmlFor="elf-uptime-web">Uptime</label>;
+        expect(wrapper.contains(unknown)).toEqual(true);
+    });
+
+    it('contains label for Uptime remote', () => {
+        const wrapper = shallow(<App />);
+        const unknown = <label htmlFor="elf-uptime-remote">Uptime</label>;
+        expect(wrapper.contains(unknown)).toEqual(true);
+    });
+
 });

@@ -44,7 +44,6 @@ const uptime = (hostAddress, response) => {
 
 router.get('/uptime', function(request, response) {
     'use strict';
-    allData += '';
     uptime(hostAddress, response);
 });
 

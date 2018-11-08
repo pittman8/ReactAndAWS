@@ -180,6 +180,11 @@ class App extends Component {
                     </section>
                     <button onClick={this.copyCPUInfo}>Run Foo</button>
                 </main>
+                <p>
+                    Completed by Hannah Pittman
+                    <br/>
+                    ISIT 320 Fall 2018 Charlie Calvert
+                </p>
             </div>
         );
     }

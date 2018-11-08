@@ -25,6 +25,7 @@ const check = (request, response, next) => {
 router.use(check);
 
 const copyCPUInfo = () => {
+    allData = '';
     return new Promise(function(resolve, reject) {
         console.log('Run CPU Info', process.env.SETUP_LINUXBOX);
 
@@ -60,6 +61,7 @@ const copyCPUInfo = () => {
 };
 
 const scriptRunner = (path, script) => {
+    allData = '';
     return new Promise(function(resolve, reject) {
         console.log('Run CPU Info', path);
 
@@ -94,9 +96,9 @@ const scriptRunner = (path, script) => {
     });
 };
 
+
 router.get('/copy-file', function(request, response) {
     'use strict';
-    allData = '';
     copyCPUInfo()
         .then(result => {
             console.log(JSON.stringify(result, null, 4));
@@ -110,7 +112,6 @@ router.get('/copy-file', function(request, response) {
 
 router.get('/run-script', function(request, response) {
     'use strict';
-    allData = '';
     scriptRunner(process.env.SETUP_LINUXBOX, request.query.script)
         .then(result => {
             console.log(JSON.stringify(result, null, 4));
