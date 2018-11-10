@@ -15,7 +15,7 @@ describe('basic suite', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('renders h1 header', () => {
+    it('renders the h1 header', () => {
         const wrapper = shallow(<App />);
         const unknown = <ElfHeader />;
         expect(wrapper.contains(unknown)).toEqual(true);
@@ -23,7 +23,7 @@ describe('basic suite', () => {
         console.log('TESTER', wrapper.find('ElfHeader').debug());
     });
 
-    it('contains end paragraph', () => {
+    it('contains the end paragraph', () => {
         const wrapper = shallow(<App />);
         const unknown = (
             <p>
@@ -37,25 +37,25 @@ describe('basic suite', () => {
         console.log('TESTER', wrapper.find('p').debug());
     });
 
-    it('contains label for CpuInfo', () => {
+    it('contains the label for CpuInfo', () => {
         const wrapper = shallow(<App />);
         const unknown = <label htmlFor="elf-radio-cpu">CpuInfo</label>;
         expect(wrapper.contains(unknown)).toEqual(true);
     });
 
-    it('contains label for VersionCheck', () => {
+    it('contains the label for VersionCheck', () => {
         const wrapper = shallow(<App />);
         const unknown = <label htmlFor="elf-radio-version">Version Info</label>;
         expect(wrapper.contains(unknown)).toEqual(true);
     });
 
-    it('contains label for Uptime web', () => {
+    it('contains the label for Uptime web', () => {
         const wrapper = shallow(<App />);
         const unknown = <label htmlFor="elf-uptime-web">Uptime</label>;
         expect(wrapper.contains(unknown)).toEqual(true);
     });
 
-    it('contains label for Uptime remote', () => {
+    it('contains the label for Uptime remote', () => {
         const wrapper = shallow(<App />);
         const unknown = <label htmlFor="elf-uptime-remote">Uptime</label>;
         expect(wrapper.contains(unknown)).toEqual(true);

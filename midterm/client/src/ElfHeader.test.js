@@ -15,7 +15,7 @@ describe('basic suite', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('renders h1 header', () => {
+    it('renders the h1 header', () => {
         const wrapper = shallow(<ElfHeader />);
         const unknown = <h1>System Check</h1>;
         expect(wrapper.contains(unknown)).toEqual(true);
