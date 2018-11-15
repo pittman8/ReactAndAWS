@@ -28,33 +28,15 @@ class App extends Component {
             });
     };
 
-    // copyVersionCheck = () => {
-    //     const that = this;
-    //     fetch('/script-pusher/copy-version')
-    //         .then(function(response) {
-    //             return response.json();
-    //         })
-    //         .then(function(json) {
-    //             console.log('parsed json', json.allData);
-    //             that.setState({allData: json.allData});
-    //         })
-    //         .catch(function(ex) {
-    //             console.log(
-    //                 'parsing failed, URL bad, network down, or similar',
-    //                 ex
-    //             );
-    //         });
-    // };
+      handleChange = (event) => {
+          const selectedValue = event.target.value;
+          console.log('HANDLE CHANGE', selectedValue);
+          this.setState({
+              ...this.state,
+              selectedValue: selectedValue,
+          });
 
-    handleChange = (event) => {
-        const selectedValue = event.target.value;
-        console.log('HANDLE CHANGE', selectedValue);
-        this.setState({
-            ...this.state,
-            selectedValue: selectedValue,
-        });
-
-    };
+      };
 
     handleSubmit = (event) => {
         this.setState({
