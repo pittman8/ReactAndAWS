@@ -12,6 +12,7 @@ class App extends Component {
         };
     }
 
+    // Displays computer's info when "Run Foo" button is clicked
     copyCPUInfo = () => {
         const that = this;
         fetch('/script-pusher/copy-file')
