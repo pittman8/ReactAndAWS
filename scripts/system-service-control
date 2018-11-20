@@ -16,7 +16,7 @@ function showSystemCheck() {
 
 
 function checkPorts() {
-    sudo nmap -p 30025-30035 10.11.0.76    #localhost
+    sudo nmap -p 30025-30035 127.0.0.1    #localhost
 }
 
 echo ' '     # new line
