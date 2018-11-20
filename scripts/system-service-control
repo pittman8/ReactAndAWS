@@ -24,9 +24,9 @@ function showSystemCheck() {
 
 
 function checkPorts() {
-    sudo nmap -p 30025-30035 127.0.0.1
+    sudo nmap -p 30025-30035 10.11.0.76    #localhost
 }
-echo ' ' # new line
+
 echo 'System Service Control'
 echo 'Learn about Systemd and other running services.'
 
