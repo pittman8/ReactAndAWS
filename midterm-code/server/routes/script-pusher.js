@@ -136,4 +136,13 @@ router.get('/run-system-tool', function(request, response) {
         });
 });
 
+router.get('/foo', (request, response) => {
+    'use strict';
+    response.send({
+        file: 'script-pusher.js',
+        result: 'success',
+        status: 'script-pusher works'
+    });
+});
+
 module.exports = router;
