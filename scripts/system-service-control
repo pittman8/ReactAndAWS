@@ -6,15 +6,7 @@ LIGHT_GREEN='\033[1;32m'
 NC='\033[0m' # No Color
 BLUE='\033[1;36m'
 
-function banner {
-    echo ' '
-    echo ===============================
-    echo --- "$1" ---
-    echo ===============================
-}
-
 function show {
-    banner "$1"
     sudo systemctl show -p ActiveState -p SubState -p Environment $2
 }
 
@@ -27,11 +19,14 @@ function checkPorts() {
     sudo nmap -p 30025-30035 10.11.0.76    #localhost
 }
 
+echo ' '     # new line
+echo ===============================
 echo 'System Service Control'
 echo 'Learn about Systemd and other running services.'
+echo ===============================
 
 while true; do
-	echo " " # new line
+	echo " "   # new line
     echo -e "$BLUE Menu"    
     echo -e "$LIGHT_GREEN  a) Check Ports 30025-30040"
     echo -e "$LIGHT_GREEN  b) Only Build"
