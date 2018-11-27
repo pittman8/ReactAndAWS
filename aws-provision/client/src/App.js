@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
@@ -18,10 +18,13 @@ class App extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(foo => (json));
+                that.setState(json);
             })
             .catch(function(ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
             });
     };
 
@@ -36,29 +39,22 @@ class App extends Component {
                 //that.setState(foo => (json));
             })
             .catch(function(ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
             });
     };
 
-    createWithAwsStandardAccount = () => {
+    createWithAwsStandardAccount = () => {};
 
-    };
+    associateElasticIp = () => {};
 
-    associateElasticIp = () => {
+    copyGetStarted = () => {};
 
-    };
+    runGetStarted = () => {};
 
-    copyGetStarted = () => {
-
-    };
-
-    runGetStarted = () => {
-
-    };
-
-    removeKnownHost = () => {
-
-    };
+    removeKnownHost = () => {};
 
     render() {
         return (
@@ -68,13 +64,25 @@ class App extends Component {
                 </p>
                 <button onClick={this.queryServer}>Bar</button>
                 <br /> <br />
-                <button onClick={this.createEducate}>Create with AWS Educate Account</button>
-                <button onClick={this.createWithAwsStandardAccount}>Create with AWS Standard Account</button>
-                <button onClick={this.associateElasticIp}>Associate Elastic Ip</button>
+                <button onClick={this.createEducate}>
+                    Create with AWS Educate Account
+                </button>
+                <button onClick={this.createWithAwsStandardAccount}>
+                    Create with AWS Standard Account
+                </button>
+                <button onClick={this.associateElasticIp}>
+                    Associate Elastic Ip
+                </button>
                 <br /> <br />
-                <button onClick={this.copyGetStarted}>Copy the GetStarted Script</button>
-                <button onClick={this.runGetStarted}>Run the GetStarted Script</button>
-                <button onClick={this.removeKnownHost}>Remove From KnownHost</button>
+                <button onClick={this.copyGetStarted}>
+                    Copy the GetStarted Script
+                </button>
+                <button onClick={this.runGetStarted}>
+                    Run the GetStarted Script
+                </button>
+                <button onClick={this.removeKnownHost}>
+                    Remove From KnownHost
+                </button>
             </div>
         );
     }

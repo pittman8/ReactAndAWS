@@ -1,7 +1,9 @@
 {
     "dependencies": {
         "aws-sdk": "^2.328.0",
-        "commander": "^2.18.0"
+        "commander": "^2.18.0",
+        "eslint": "^5.6.0",
+        "eslint-config-react-app": "^3.0.5"
     },
     "name": "aws-elf-sample",
     "description": "A simple Node.js application showing usage of the AWS SDK for Node.js.",
@@ -9,9 +11,8 @@
     "main": "index.js",
     "devDependencies": {},
     "scripts": {
-        "start": "node Menu.js",
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon ./bin/www",
+        "test": "echo \"Error: no test specified\" && exit 1",
         "start-service": "node ./bin/www"
     },
     "author": "Charlie Calvert",

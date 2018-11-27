@@ -1,0 +1,4 @@
+#! /bin/bash
+
+sudo systemctl stop copyFile.service
+sudo systemctl disable copyFile.service

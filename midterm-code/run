@@ -21,7 +21,7 @@ function runServer() {
     ./build-copy-worker a
     cd ../server
     nohup node bin/www &
-    firefox http://localhost:${ELF_SYSTEM_CHECK_PORT}
+    chromium-browser http://localhost:${MIDTERM_PORT}
 }
 
 function startService() {

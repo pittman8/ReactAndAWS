@@ -1,0 +1,9 @@
+#! /bin/bash
+
+function copyService() {
+    sudo cp -v copyFile.service /etc/systemd/system/.
+    sudo systemctl enable copyFile.service
+    sudo systemctl start copyFile.service
+}
+
+copyService

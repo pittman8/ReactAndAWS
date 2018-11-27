@@ -22,7 +22,7 @@ function runServer() {
     ./build-copy-worker a
     cd ../server
     nohup node bin/www &
-    firefox http://localhost:${2}
+    chromium-browser http://localhost:${2}
 }
 
 function startService() {
@@ -36,3 +36,4 @@ case $2 in
     [Bb]* ) runServer ${1} ${3}; shift;;
     [Cc]* ) startService; shift;;
 esac
+

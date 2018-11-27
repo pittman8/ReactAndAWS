@@ -1,0 +1,5 @@
+**/build/**
+**/serviceWorker.js
+/server/public/*
+**/build/**
+**/serviceWorker.js

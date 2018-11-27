@@ -6,4 +6,4 @@ function copyService() {
     sudo systemctl start aws.service
 }
 
-./mod-service $1 && copyService
+copyService
