@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +17,7 @@ class App extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json.allData);
-                that.setState({allData: json.allData});
+                that.setState({ allData: json.allData });
             })
             .catch(function(ex) {
                 console.log(
@@ -28,19 +27,18 @@ class App extends Component {
             });
     };
 
-      handleChange = (event) => {
-          const selectedValue = event.target.value;
-          console.log('HANDLE CHANGE', selectedValue);
-          this.setState({
-              ...this.state,
-              selectedValue: selectedValue,
-          });
-
-      };
-
-    handleSubmit = (event) => {
+    handleChange = event => {
+        const selectedValue = event.target.value;
+        console.log('HANDLE CHANGE', selectedValue);
         this.setState({
-            allData: '',
+            ...this.state,
+            selectedValue: selectedValue
+        });
+    };
+
+    handleSubmit = event => {
+        this.setState({
+            allData: ''
         });
         console.log('A name was submitted: ', this.state);
         //if (this.state.selectedValue === 'cpu') {
@@ -52,12 +50,12 @@ class App extends Component {
     };
 
     render() {
-        const radioWeb =  (
+        const radioWeb = (
             <div className="container">
-                <form onSubmit={this.handleSubmit} >
-
-                    <div className="elf-form-field" >
-                        <input type="radio"
+                <form onSubmit={this.handleSubmit}>
+                    <div className="elf-form-field">
+                        <input
+                            type="radio"
                             name="app-choice"
                             value="CpuInfo"
                             id="elf-radio-cpu"
@@ -65,7 +63,8 @@ class App extends Component {
                         />
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
 
-                        <input type="radio"
+                        <input
+                            type="radio"
                             name="app-choice"
                             value="VersionCheck"
                             id="elf-radio-version"
@@ -75,7 +74,9 @@ class App extends Component {
                     </div>
 
                     <div className="form-group">
-                        <button type="submit" className="btn btn-primary">Run System Script</button>
+                        <button type="submit" className="btn btn-primary">
+                            Run System Script
+                        </button>
                     </div>
                 </form>
             </div>
@@ -87,9 +88,7 @@ class App extends Component {
                     <h1>System Check</h1>
                 </header>
                 <main>
-                    <section>
-                        {radioWeb}
-                    </section>
+                    <section>{radioWeb}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
@@ -100,4 +99,4 @@ class App extends Component {
     }
 }
 
-export default App; 
+export default App;
