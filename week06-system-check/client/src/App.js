@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             allData: 'unknown'
-        }
+        };
     }
 
     copyFile = () => {
@@ -18,7 +17,7 @@ class App extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json.allData);
-                that.setState({allData: json.allData});
+                that.setState({ allData: json.allData });
             })
             .catch(function(ex) {
                 console.log(

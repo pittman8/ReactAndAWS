@@ -4,9 +4,7 @@ import './App.css';
 class RadioRemote extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = [
-            '/ssh-runner/'
-        ];
+        this.dataEndPoints = ['/ssh-runner/'];
         this.state = {
             allData: '',
             selectedValue: '',
