@@ -1,2 +1,4 @@
 build
 **/server/public/**
+**/build/**
+**/serviceWorker.js
