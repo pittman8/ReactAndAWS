@@ -31,7 +31,6 @@ const getSshIp = () => {
                         );
                     }
                 }
-                console.log('GET SSH IP', result);
                 resolve(result);
             })
             .catch(reject);
