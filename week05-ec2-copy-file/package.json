@@ -1,0 +1,14 @@
+{
+  "name": "week05-ec2-copy-file",
+  "version": "1.0.0",
+  "description": "copy-file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hannah Pittman",
+  "license": "MIT",
+  "dependencies": {
+    "reinstall": "^2.0.0"
+  }
+}
