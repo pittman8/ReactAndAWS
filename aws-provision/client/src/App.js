@@ -59,6 +59,9 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <header>
+                    <h1>AWS Provision</h1>
+                </header>
                 <p className="App-intro">
                     state: {this.state.status} file: {this.state.file}
                 </p>
