@@ -1,6 +1,6 @@
 #! /bin/bash
 
-LOCAL_IP=$(./get-ip.js)
+LOCAL_IP=$(~/bin/./get-ip.js)
 
 RED='\033[0;31m'
 LIGHT_RED='\033[1;31m'
