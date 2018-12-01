@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 
 /* Set up a route called foo. */
 router.get('/foo', function(request, response) {
-    var message = { result: 'success', status: 'bar', file: 'index.js' };
+    var message = { result: 'success', endpointCalled: '/foo', file: 'index.js' };
     console.log('Foo called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
@@ -19,19 +19,25 @@ router.get('/foo', function(request, response) {
 router.get('/create-educate', function(request, response) {
     const awsInstanceParams = getAwsInstanceParams.awsEducate();
     createInstance(awsInstanceParams);
-    response.send({ result: 'success' });
+    var message = { result: 'success', endpointCalled: '/create-educate', file: 'index.js' };
+    console.log('Create Educate called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
 });
 
 router.get('/create-standard', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    response.send({ result: 'success' });
+    var message = { result: 'success', endpointCalled: '/create-standard', file: 'index.js' };
+    console.log('Create Standard called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
 });
 
 router.get('/associate-elastic-ip', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    response.send({ result: 'success' });
+    var message = { result: 'success', endpointCalled: '/associate-elastic-ip', file: 'index.js' };
+    console.log('Associate Elastic IP called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
 });
 
 module.exports = router;

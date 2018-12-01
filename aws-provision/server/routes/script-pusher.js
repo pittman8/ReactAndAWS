@@ -26,17 +26,25 @@ router.use(check);
 router.get('/copy-get-started', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    response.send({ result: 'success' });
+    var message = { result: 'success', endpointCalled: '/copy-get-started', file: 'script-pusher.js' };
+    console.log('Copy Get Started called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
 });
 
 router.get('/run-get-started', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    response.send({ result: 'success' });
+    var message = { result: 'success', endpointCalled: '/run-get-started', file: 'script-pusher.js' };
+    console.log('Run Get Started called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
 });
 
 router.get('/remove-known-host', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    response.send({ result: 'success' });
+    var message = { result: 'success', endpointCalled: '/remove-known-host', file: 'script-pusher.js' };
+    console.log('Remove KnownHost called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
 });
+
+module.exports = router;

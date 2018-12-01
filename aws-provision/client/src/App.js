@@ -46,15 +46,95 @@ class App extends Component {
             });
     };
 
-    createWithAwsStandardAccount = () => {};
+    createWithAwsStandardAccount = () => {
+        //const that = this;
+        fetch('/create-standard')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
 
-    associateElasticIp = () => {};
+    associateElasticIp = () => {
+        //const that = this;
+        fetch('/associate-elastic-ip')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
 
-    copyGetStarted = () => {};
+    copyGetStarted = () => {
+        //const that = this;
+        fetch('/script-pusher/copy-get-started')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
 
-    runGetStarted = () => {};
+    runGetStarted = () => {
+        //const that = this;
+        fetch('/script-pusher/run-get-started')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
 
-    removeKnownHost = () => {};
+    removeKnownHost = () => {
+        //const that = this;
+        fetch('/script-pusher/remove-known-host')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
 
     render() {
         return (
