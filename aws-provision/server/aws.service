@@ -2,14 +2,14 @@
 Description=AWS Provision Service
 
 [Service]
-ExecStart=/home/bcuser/npm/bin/npm run start-service
-WorkingDirectory=/home/bcuser/bin/aws
+ExecStart=/home/ubuntu/npm/bin/npm run start-service
+WorkingDirectory=/home/ubuntu/bin/aws
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=aws
-User=bcuser
-Group=bcuser
+User=ubuntu
+Group=ubuntu
 Environment=NODE_ENV=production
 Environment=SERVER_PORT=30026
 
