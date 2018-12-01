@@ -17,8 +17,9 @@ router.get('/foo', function(request, response) {
 });
 
 router.get('/create-educate', function(request, response) {
-    const awsInstanceParams = getAwsInstanceParams.awsEducate();
-    createInstance(awsInstanceParams);
+   // cannot create instance up on EC2
+   // const awsInstanceParams = getAwsInstanceParams.awsEducate(); 
+   // createInstance(awsInstanceParams);
     var message = { result: 'success', endpointCalled: '/create-educate', file: 'index.js' };
     console.log('Create Educate called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
