@@ -40,7 +40,8 @@ class App extends Component {
             })
             .catch(function(ex) {
                 console.log(
-                    'parsing failed, URL bad, network down, or similar',
+                    'CANNOT CREATE AN INSTANCE WHEN ON EC2 SYSTEMD SERVICE, ' +
+                    'CAN CREATE INSTANCE ON LOCALHOST',
                     ex
                 );
             });
