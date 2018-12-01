@@ -5,14 +5,34 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            file: 'unknown',
-            status: 'waiting'
+            result: 'undefined',
+            endpointCalled: 'unknown',
+            file: 'unknown'
         };
     }
 
-    queryServer = () => {
+    createEducate = () => {
         const that = this;
-        fetch('/foo')
+        fetch('/create-educate')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'CANNOT CREATE AN INSTANCE WHEN ON EC2 SYSTEMD SERVICE, ' +
+                    'CAN CREATE INSTANCE ON LOCALHOST',
+                    ex
+                );
+            });
+    };
+
+    createWithAwsStandardAccount = () => {
+        const that = this;
+        fetch('/create-standard')
             .then(function(response) {
                 return response.json();
             })
@@ -28,52 +48,15 @@ class App extends Component {
             });
     };
 
-    createEducate = () => {
-        //const that = this;
-        fetch('/create-educate')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => (json));
-            })
-            .catch(function(ex) {
-                console.log(
-                    'CANNOT CREATE AN INSTANCE WHEN ON EC2 SYSTEMD SERVICE, ' +
-                    'CAN CREATE INSTANCE ON LOCALHOST',
-                    ex
-                );
-            });
-    };
-
-    createWithAwsStandardAccount = () => {
-        //const that = this;
-        fetch('/create-standard')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => (json));
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-
     associateElasticIp = () => {
-        //const that = this;
+        const that = this;
         fetch('/associate-elastic-ip')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                //that.setState(foo => (json));
+                that.setState(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -84,14 +67,14 @@ class App extends Component {
     };
 
     copyGetStarted = () => {
-        //const that = this;
+        const that = this;
         fetch('/script-pusher/copy-get-started')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                //that.setState(foo => (json));
+                that.setState(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -102,14 +85,14 @@ class App extends Component {
     };
 
     runGetStarted = () => {
-        //const that = this;
+        const that = this;
         fetch('/script-pusher/run-get-started')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                //that.setState(foo => (json));
+                that.setState(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -120,14 +103,14 @@ class App extends Component {
     };
 
     removeKnownHost = () => {
-        //const that = this;
+        const that = this;
         fetch('/script-pusher/remove-known-host')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                //that.setState(foo => (json));
+                that.setState(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -144,10 +127,13 @@ class App extends Component {
                     <h1>AWS Provision</h1>
                 </header>
                 <p className="App-intro">
-                    state: {this.state.status} file: {this.state.file}
+                    result: {this.state.result}
+                    <br />
+                    end-point: {this.state.endpointCalled}
+                    <br />
+                    file: {this.state.file}
                 </p>
-                <button onClick={this.queryServer}>Bar</button>
-                <br /> <br />
+                <br />
                 <button onClick={this.createEducate}>
                     Create with AWS Educate Account
                 </button>

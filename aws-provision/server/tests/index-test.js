@@ -4,23 +4,6 @@ const app = require('../app'); //reference to you app.js file
 
 describe('Test index.js', function() {
 
-    it('should call foo route', function(done) {
-        request(app)
-            .get('/foo')
-            .set('Accept', 'application/json')
-            .expect('Content-Type', /json/)
-            .expect(200, done);
-    });
-
-    it('should check foo route and check JSON', function(done) {
-        request(app)
-            .get('/foo')
-            .set('Accept', 'application/json')
-            .expect('Content-Type', /json/)
-            .expect(200, done)
-            .expect({ result: 'success', endpointCalled: '/foo', file: 'index.js' });
-    });
-
     it('should call create-educate route', function(done) {
         request(app)
             .get('/create-educate')

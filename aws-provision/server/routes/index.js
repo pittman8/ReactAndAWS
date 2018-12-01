@@ -9,13 +9,6 @@ router.get('/', function(req, res) {
     res.render('index', { title: 'server' });
 });
 
-/* Set up a route called foo. */
-router.get('/foo', function(request, response) {
-    var message = { result: 'success', endpointCalled: '/foo', file: 'index.js' };
-    console.log('Foo called:\n' + JSON.stringify(message, null, 4));
-    response.send(message);
-});
-
 router.get('/create-educate', function(request, response) {
    // cannot create instance up on EC2
     const awsInstanceParams = getAwsInstanceParams.awsEducate();
