@@ -1,4 +1,4 @@
 #! /bin/bash
 
-sudo systemctl stop midterm.service
-sudo systemctl disable midterm.service
+sudo systemctl stop refactor.service
+sudo systemctl disable refactor.service
