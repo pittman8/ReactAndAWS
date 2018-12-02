@@ -16,6 +16,21 @@ function showSystemCheck() {
     show 'SystemCheck' systemcheck.service
 }
 
+function showSystemCheckRefactor() {
+    show 'SystemCheckRefactor' scref.service
+}
+
+function showAwsProvision() {
+    show 'AwsProvision' aws.service
+}
+
+function showMidterm() {
+    show 'Midterm' midterm.service
+}
+
+function showEC2CopyFile() {
+    show 'EC2CopyFile' copyFile.service
+}
 
 function checkPorts() {
     sudo nmap -p 30025-30035 ${LOCAL_IP}
@@ -31,16 +46,22 @@ while true; do
 	echo " "   # new line
     echo -e "$BLUE Menu"    
     echo -e "$LIGHT_GREEN  a) Check Ports 30025-30040"
-    echo -e "$LIGHT_GREEN  b) Only Build"
-    echo -e "$LIGHT_GREEN  c) Only Delete"
+    echo -e "$LIGHT_GREEN  b) SystemCheck"
+    echo -e "$LIGHT_GREEN  c) SystemCheckRefactor"
+    echo -e "$LIGHT_GREEN  d) AWS Provision"
+    echo -e "$LIGHT_GREEN  e) Midterm"
+    echo -e "$LIGHT_GREEN  f) EC2-Copy-File"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " userInput
     case $userInput in
         [Aa]* ) checkPorts false; continue;;
         [Bb]* ) showSystemCheck; continue;;
-        [Cc]* ) deleteOld; continue;;
+        [Cc]* ) showSystemCheckRefactor; continue;;
+        [Dd]* ) showAwsProvision; continue;;
+        [Ee]* ) showMidterm; continue;;
+        [Ff]* ) showEC2CopyFile; continue;;
         [XxQq]* ) break;;
-        *) echo -e "\n$NC" + "Please answer with a, b, c, or x.";;
+        *) echo -e "\n$NC" + "Please answer with a through f or x.";;
     esac
 done
