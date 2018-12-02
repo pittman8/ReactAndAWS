@@ -1,13 +1,13 @@
 [Unit]
-Description=Midterm Service
+Description=Refactor Service
 
 [Service]
 ExecStart=/home/bcuser/npm/bin/npm run start-service
-WorkingDirectory=/home/bcuser/bin/midterm
+WorkingDirectory=/home/bcuser/bin/refactor
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=midterm
+SyslogIdentifier=refactor
 User=bcuser
 Group=bcuser
 Environment=NODE_ENV=production
