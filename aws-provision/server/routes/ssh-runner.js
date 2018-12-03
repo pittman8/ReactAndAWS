@@ -8,7 +8,7 @@ let allData = '';
 
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
-    const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
+    const validOptions = ['UbuntuSetup', 'GetStarted'];
     if (request.query.script) {
         console.log('INSIDE REQUEST SCRIPT');
         if (!validOptions.includes(request.query.script)) {
@@ -57,49 +57,28 @@ const getSshIp = () => {
     });
 };
 
-const uptime = (hostName, identityFile, response) => {
-    var conn = new Client();
-    conn.on('ready', function() {
-        console.log('Client :: ready');
-        conn.exec('/usr/bin/uptime', function(err, stream) {
-            if (err) throw err;
-            stream
-                .on('close', function(code, signal) {
-                    console.log(
-                        'Stream :: close :: code: ' +
-                            code +
-                            ', signal: ' +
-                            signal
-                    );
-                    conn.end();
-                    response.send({ result: 'success', allData: allData });
-                })
-                .on('data', function(data) {
-                    console.log('STDOUT: ' + data);
-                    allData += data;
-                })
-                .stderr.on('data', function(data) {
-                    console.log('STDERR: ' + data);
-                    allData += data;
-                });
-        });
-    }).connect({
-        host: hostName,
-        port: 22,
-        username: 'ubuntu',
-        privateKey: require('fs').readFileSync(
-            process.env.HOME + '/.ssh/' + identityFile
-        )
-    });
-};
-
-router.get('/uptime', function(request, response) {
-    console.log('run-get-started called in ssh-runner', hostAddress);
+router.get('/run-get-started', function(request, response) {
+    // const awsInstanceParams = getAwsInstanceParams.awsEducate();
+    // createInstance(awsInstanceParams);
     getSshIp()
-        .then(result => {
-            uptime(result.hostName, result.identityFile, response);
-        })
-        .catch(err => {
+        .then(response => {
+            var message = {result: 'success', route: '/ssh-runner/run-get-started'};
+            console.log('Run Get Started called:\n' + JSON.stringify(message, null, 4));
+            response.send(message);
+        }).catch(err => {
+            response.send(err);
+        });
+});
+
+router.get('/run-ubuntu-setup', function(request, response) {
+    // const awsInstanceParams = getAwsInstanceParams.awsEducate();
+    // createInstance(awsInstanceParams);
+    getSshIp()
+        .then(response => {
+            var message = {result: 'success', route: '/ssh-runner/run-ubuntu-setup'};
+            console.log('Run Ubuntu Setup called:\n' + JSON.stringify(message, null, 4));
+            response.send(message);
+        }).catch(err => {
             response.send(err);
         });
 });

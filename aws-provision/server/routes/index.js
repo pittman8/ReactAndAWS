@@ -13,7 +13,21 @@ router.get('/create-educate', function(request, response) {
    // cannot create instance up on EC2
     const awsInstanceParams = getAwsInstanceParams.awsEducate();
     createInstance(awsInstanceParams);
-    var message = { result: 'success', endpointCalled: '/create-educate', file: 'index.js' };
+    var message = {
+        result: 'success',
+        route: '/create-educate',
+        instanceData: {
+            instanceId: 'i-06272fc145fe42ddc',
+            keyName: 'ec2-320-in-class.pem',
+            architecture: 'Intel(R) Xeon(R) CPU E5-2676'
+        },
+        allocationIds: {
+            standard: 'standard'
+        },
+        regions: {
+            region: 'us-east-1'
+        }
+    };
     console.log('Create Educate called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
@@ -21,7 +35,21 @@ router.get('/create-educate', function(request, response) {
 router.get('/create-standard', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    var message = { result: 'success', endpointCalled: '/create-standard', file: 'index.js' };
+    var message = {
+        result: 'success',
+        route: '/create-standard',
+        instanceData: {
+            instanceId: 'i-06272fc145fe42ddc',
+            keyName: 'ec2-320-in-class.pem',
+            architecture: 'Intel(R) Xeon(R) CPU E5-2676'
+        },
+        allocationIds: {
+            standard: 'standard'
+        },
+        regions: {
+            region: 'us-east-1'
+        }
+    };
     console.log('Create Standard called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
@@ -29,8 +57,24 @@ router.get('/create-standard', function(request, response) {
 router.get('/associate-elastic-ip', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    var message = { result: 'success', endpointCalled: '/associate-elastic-ip', file: 'index.js' };
+    var message = { result: 'success', route: '/associate-elastic-ip' };
     console.log('Associate Elastic IP called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
+});
+
+router.get('/get-instance-status', function(request, response) {
+    // const awsInstanceParams = getAwsInstanceParams.awsEducate();
+    // createInstance(awsInstanceParams);
+    var message = { result: 'success', route: '/get-instance-status' };
+    console.log('Get Instance Status called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
+});
+
+router.get('/reboot-instance', function(request, response) {
+    // const awsInstanceParams = getAwsInstanceParams.awsEducate();
+    // createInstance(awsInstanceParams);
+    var message = { result: 'success', route: '/reboot-instance' };
+    console.log('Reboot Instance called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
 
