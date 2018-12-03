@@ -9,15 +9,14 @@ import Tools from "./Tools";
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.handler = this.handler.bind(this);
+    }
+
+    handler () {
+        this.setState({
             result: '',
             route: '',
-            instanceData: {
-                architecture: '',
-                instanceId: '',
-                keyName: ''
-            }
-        };
+        })
     }
 
     render() {
@@ -28,10 +27,10 @@ class App extends Component {
                     <CreateAssociate />
                         <pre>Result: {this.props.result}</pre>
                         <pre>Route: {this.props.route}</pre>
-                        <pre>Architecture: {this.state.instanceData.architecture}</pre>
-                        <pre>InstanceId: {this.state.instanceData.instanceId}</pre>
-                        <pre>KeyName: {this.state.instanceData.keyName}</pre>
-                    <RunLocal />
+                        {/*<pre>Architecture: {this.state.instanceData.architecture}</pre>*/}
+                        {/*<pre>InstanceId: {this.state.instanceData.instanceId}</pre>*/}
+                        {/*<pre>KeyName: {this.state.instanceData.keyName}</pre>*/}
+                    <RunLocal handler = {this.handler}/>
                     <RunRemote />
                     <Tools />
                 </main>

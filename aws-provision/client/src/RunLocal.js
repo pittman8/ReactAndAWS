@@ -32,7 +32,9 @@ class RunLocal extends Component {
     render() {
         return (
             <div className="App">
-                <button onClick={this.copyGetStarted}>
+                {/*<pre>{this.state.result}</pre>*/}
+                {/*<pre>{this.state.route}</pre>*/}
+                <button onClick={this.props.handler}>
                     Copy the GetStarted Script
                 </button>
             </div>
