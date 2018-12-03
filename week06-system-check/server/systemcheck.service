@@ -11,8 +11,8 @@ SyslogIdentifier=systemcheck
 User=ubuntu
 Group=ubuntu
 Environment=NODE_ENV=production
-Environment=SYSTEM_CHECK_PORT=30033
-Environment=SETUP_LINUXBOX=/home/ubuntu/Git/JsObjects/Utilities/SetupLinuxBox
+Environment=ELF_SYSTEM_CHECK_PORT=30034
+Environment=SETUP_LINUXBOX=/home/bcuser/Git/JsObjects/Utilities/SetupLinuxBox
 
 [Install]
 WantedBy=multi-user.target
