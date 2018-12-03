@@ -20,6 +20,10 @@ function showSystemCheckRefactor() {
     show 'SystemCheckRefactor' scref.service
 }
 
+function showSystemCheckDetails() {
+    show 'SystemCheckDetails' refactor.service
+}
+
 function showAwsProvision() {
     show 'AwsProvision' aws.service
 }
@@ -48,9 +52,10 @@ while true; do
     echo -e "$LIGHT_GREEN  a) Check Ports 30025-30040"
     echo -e "$LIGHT_GREEN  b) SystemCheck"
     echo -e "$LIGHT_GREEN  c) SystemCheckRefactor"
-    echo -e "$LIGHT_GREEN  d) AWS Provision"
-    echo -e "$LIGHT_GREEN  e) Midterm"
-    echo -e "$LIGHT_GREEN  f) EC2-Copy-File"
+    echo -e "$LIGHT_GREEN  d) SystemCheckRefactor Details"
+    echo -e "$LIGHT_GREEN  e) AWS Provision"
+    echo -e "$LIGHT_GREEN  f) Midterm"
+    echo -e "$LIGHT_GREEN  g) EC2-Copy-File"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " userInput
@@ -58,10 +63,11 @@ while true; do
         [Aa]* ) checkPorts false; continue;;
         [Bb]* ) showSystemCheck; continue;;
         [Cc]* ) showSystemCheckRefactor; continue;;
-        [Dd]* ) showAwsProvision; continue;;
-        [Ee]* ) showMidterm; continue;;
-        [Ff]* ) showEC2CopyFile; continue;;
+        [Dd]* ) showSystemCheckDetails; continue;;
+        [Ee]* ) showAwsProvision; continue;;
+        [Ff]* ) showMidterm; continue;;
+        [Gg]* ) showEC2CopyFile; continue;;
         [XxQq]* ) break;;
-        *) echo -e "\n$NC" + "Please answer with a through f or x.";;
+        *) echo -e "\n$NC" + "Please answer with a through g or x.";;
     esac
 done
