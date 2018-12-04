@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 class RunRemote extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            result: 'undefined',
-            route: 'unknown',
-        };
-    }
-
     runGetStarted = () => {
         const that = this;
         fetch('/ssh-runner/run-get-started')
@@ -18,7 +10,7 @@ class RunRemote extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -36,7 +28,7 @@ class RunRemote extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(

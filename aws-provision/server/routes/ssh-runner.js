@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Client = require('ssh2').Client;
 const elfUtils = require('elven-code').elfUtils;
-const hostAddress = '18.235.68.201';
-
-let allData = '';
 
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
@@ -51,6 +47,7 @@ const getSshIp = () => {
                         );
                     }
                 }
+                console.log('GET SSH IP', result);
                 resolve(result);
             })
             .catch(reject);
@@ -61,11 +58,21 @@ router.get('/run-get-started', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
     getSshIp()
-        .then(response => {
-            var message = {result: 'success', route: '/ssh-runner/run-get-started'};
-            console.log('Run Get Started called:\n' + JSON.stringify(message, null, 4));
+        .then(result => {
+            var message = {
+                result: 'success',
+                route: '/ssh-runner/run-get-started',
+                instanceData: {
+                    keyName: result.identityFile,
+                    hostName: result.hostName
+                }
+            };
+            console.log(
+                'Run Get Started called:\n' + JSON.stringify(message, null, 4)
+            );
             response.send(message);
-        }).catch(err => {
+        })
+        .catch(err => {
             response.send(err);
         });
 });
@@ -74,11 +81,21 @@ router.get('/run-ubuntu-setup', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
     getSshIp()
-        .then(response => {
-            var message = {result: 'success', route: '/ssh-runner/run-ubuntu-setup'};
-            console.log('Run Ubuntu Setup called:\n' + JSON.stringify(message, null, 4));
+        .then(result => {
+            var message = {
+                result: 'success',
+                route: '/ssh-runner/run-ubuntu-setup',
+                instanceData: {
+                    keyName: result.identityFile,
+                    hostName: result.hostName
+                }
+            };
+            console.log(
+                'Run Ubuntu Setup called:\n' + JSON.stringify(message, null, 4)
+            );
             response.send(message);
-        }).catch(err => {
+        })
+        .catch(err => {
             response.send(err);
         });
 });

@@ -26,7 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/index', index);
 app.use('/script-pusher', scriptPusher);
-app.use('/ssh-runner', sshRunner );
+app.use('/ssh-runner', sshRunner);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

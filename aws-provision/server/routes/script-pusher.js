@@ -26,16 +26,28 @@ router.use(check);
 router.get('/copy-get-started', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    var message = { result: 'success', route: '/script-pusher/copy-get-started' };
-    console.log('Copy Get Started called:\n' + JSON.stringify(message, null, 4));
+    var message = {
+        result: 'success',
+        route: '/script-pusher/copy-get-started',
+        instanceData: ''
+    };
+    console.log(
+        'Copy Get Started called:\n' + JSON.stringify(message, null, 4)
+    );
     response.send(message);
 });
 
 router.get('/remove-known-host', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    var message = { result: 'success', route: '/script-pusher/remove-known-host' };
-    console.log('Remove KnownHost called:\n' + JSON.stringify(message, null, 4));
+    var message = {
+        result: 'success',
+        route: '/script-pusher/remove-known-host',
+        instanceData: ''
+    };
+    console.log(
+        'Remove KnownHost called:\n' + JSON.stringify(message, null, 4)
+    );
     response.send(message);
 });
 

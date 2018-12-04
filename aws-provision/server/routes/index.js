@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/create-educate', function(request, response) {
-   // cannot create instance up on EC2
+    // cannot create instance up on EC2
     const awsInstanceParams = getAwsInstanceParams.awsEducate();
     createInstance(awsInstanceParams);
     var message = {
@@ -19,7 +19,8 @@ router.get('/create-educate', function(request, response) {
         instanceData: {
             instanceId: 'i-06272fc145fe42ddc',
             keyName: 'ec2-320-in-class.pem',
-            architecture: 'Intel(R) Xeon(R) CPU E5-2676'
+            architecture: 'Intel(R) Xeon(R) CPU E5-2676',
+            hostName: '18.235.68.201'
         },
         allocationIds: {
             standard: 'standard'
@@ -41,7 +42,8 @@ router.get('/create-standard', function(request, response) {
         instanceData: {
             instanceId: 'i-06272fc145fe42ddc',
             keyName: 'ec2-320-in-class.pem',
-            architecture: 'Intel(R) Xeon(R) CPU E5-2676'
+            architecture: 'Intel(R) Xeon(R) CPU E5-2676',
+            hostName: '18.235.68.201'
         },
         allocationIds: {
             standard: 'standard'
@@ -57,23 +59,39 @@ router.get('/create-standard', function(request, response) {
 router.get('/associate-elastic-ip', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    var message = { result: 'success', route: '/associate-elastic-ip' };
-    console.log('Associate Elastic IP called:\n' + JSON.stringify(message, null, 4));
+    var message = {
+        result: 'success',
+        route: '/associate-elastic-ip',
+        instanceData: ''
+    };
+    console.log(
+        'Associate Elastic IP called:\n' + JSON.stringify(message, null, 4)
+    );
     response.send(message);
 });
 
 router.get('/get-instance-status', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    var message = { result: 'success', route: '/get-instance-status' };
-    console.log('Get Instance Status called:\n' + JSON.stringify(message, null, 4));
+    var message = {
+        result: 'success',
+        route: '/get-instance-status',
+        instanceData: ''
+    };
+    console.log(
+        'Get Instance Status called:\n' + JSON.stringify(message, null, 4)
+    );
     response.send(message);
 });
 
 router.get('/reboot-instance', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
-    var message = { result: 'success', route: '/reboot-instance' };
+    var message = {
+        result: 'success',
+        route: '/reboot-instance',
+        instanceData: ''
+    };
     console.log('Reboot Instance called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });

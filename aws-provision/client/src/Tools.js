@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 class Tools extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
     getInstanceStatus = () => {
         const that = this;
         fetch('/get-instance-status')
@@ -15,7 +10,7 @@ class Tools extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -33,7 +28,7 @@ class Tools extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -51,7 +46,7 @@ class Tools extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -70,9 +65,7 @@ class Tools extends Component {
                 <button onClick={this.getInstanceStatus}>
                     Get Instance Status
                 </button>
-                <button onClick={this.rebootInstance}>
-                    Reboot Instance
-                </button>
+                <button onClick={this.rebootInstance}>Reboot Instance</button>
             </div>
         );
     }

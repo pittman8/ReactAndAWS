@@ -2,19 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 class CreateAssociate extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            result: 'undefined',
-            route: 'unknown',
-            instanceData: {
-                architecture: 'unknown',
-                instanceId: 'unknown',
-                keyName: 'unknown'
-            }
-        };
-    }
-
     createEducate = () => {
         const that = this;
         fetch('/create-educate')
@@ -23,12 +10,12 @@ class CreateAssociate extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(
                     'CANNOT CREATE AN INSTANCE WHEN ON EC2 SYSTEMD SERVICE, ' +
-                    'CAN CREATE INSTANCE ON LOCALHOST',
+                        'CAN CREATE INSTANCE ON LOCALHOST',
                     ex
                 );
             });
@@ -42,7 +29,7 @@ class CreateAssociate extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -60,7 +47,7 @@ class CreateAssociate extends Component {
             })
             .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(

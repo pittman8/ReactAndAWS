@@ -2,24 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 
 class RunLocal extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            result: '',
-            route: '',
-        };
-    }
-
     copyGetStarted = () => {
+        this.setState();
         const that = this;
         fetch('/script-pusher/copy-get-started')
             .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
-                console.log('result', json.result);
-                console.log('route', json.route);
-                that.setState({ result: json.result, route: json.route });
+                console.log('parsed json', json);
+                that.props.handler(json);
             })
             .catch(function(ex) {
                 console.log(
@@ -32,9 +24,7 @@ class RunLocal extends Component {
     render() {
         return (
             <div className="App">
-                {/*<pre>{this.state.result}</pre>*/}
-                {/*<pre>{this.state.route}</pre>*/}
-                <button onClick={this.props.handler}>
+                <button onClick={this.copyGetStarted}>
                     Copy the GetStarted Script
                 </button>
             </div>

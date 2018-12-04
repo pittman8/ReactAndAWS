@@ -6,7 +6,9 @@ class ElfHeader extends Component {
         return (
             <header>
                 <h1>AWS Provision</h1>
-                <p><i>by Hannah Pittman</i></p>
+                <p>
+                    <i>by Hannah Pittman</i>
+                </p>
             </header>
         );
     }
