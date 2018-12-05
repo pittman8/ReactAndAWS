@@ -1,4 +1,4 @@
 #! /bin/bash
 
-sudo systemctl stop aws.service
-sudo systemctl disable aws.service
+sudo systemctl stop awsprov.service
+sudo systemctl disable awsprov.service

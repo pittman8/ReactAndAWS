@@ -1,0 +1,17 @@
+[Unit]
+Description=Copy File Service
+
+[Service]
+ExecStart=/home/bcuser/npm/bin/npm run start-service
+WorkingDirectory=/home/bcuser/bin/ec2-copy-file
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=ec2-copy-file
+User=bcuser
+Group=bcuser
+Environment=NODE_ENV=production
+Environment=ELF_EC2_COPY_PORT=30033
+
+[Install]
+WantedBy=multi-user.target

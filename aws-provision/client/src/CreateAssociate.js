@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const allocationId = "standard";
-const instanceId = "i-06272fc145fe42ddc";
-const region = "us-east-1";
+const allocationId = 'standard';
+const instanceId = 'i-06272fc145fe42ddc';
+const region = 'us-east-1';
 
 class CreateAssociate extends Component {
     createEducate = () => {
@@ -46,9 +46,13 @@ class CreateAssociate extends Component {
     associateElasticIp = () => {
         const that = this;
         fetch(
-            '/associate-elastic-ip?instanceId=' + instanceId +
-            '&allocationId=' + allocationId +
-            '&region=' + region)
+            '/associate-elastic-ip?instanceId=' +
+                instanceId +
+                '&allocationId=' +
+                allocationId +
+                '&region=' +
+                region
+        )
             .then(function(response) {
                 return response.json();
             })

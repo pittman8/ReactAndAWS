@@ -25,7 +25,6 @@ const check = (request, response, next) => {
 
 router.use(check);
 
-
 const copyCpuInfo = () => {
     return new Promise(function(resolve, reject) {
         console.log('Run CPU Info', process.env.SETUP_LINUXBOX);

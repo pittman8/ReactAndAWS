@@ -31,7 +31,7 @@ describe('Test index.js', function() {
                 },
                 regions: {
                     region: 'us-east-1'
-                },
+                }
             });
     });
 
@@ -84,11 +84,7 @@ describe('Test index.js', function() {
             .expect({
                 result: 'success',
                 route: '/associate-elastic-ip',
-                instanceData: {
-                    instanceId: 'i-06272fc145fe42ddc'
-                },
-                allocationId: 'standard',
-                region: 'us-east-1'
+                instanceData: {}
             });
     });
 
@@ -109,11 +105,7 @@ describe('Test index.js', function() {
             .expect({
                 result: 'success',
                 route: '/get-instance-status',
-                instanceData: {
-                    instanceId: 'i-06272fc145fe42ddc'
-                },
-                allocationId: '',
-                region: ''
+                instanceData: {}
             });
     });
 
@@ -134,9 +126,7 @@ describe('Test index.js', function() {
             .expect({
                 result: 'success',
                 route: '/reboot-instance',
-                instanceData: '',
-                allocationId: '',
-                region: ''
+                instanceData: ''
             });
     });
 });

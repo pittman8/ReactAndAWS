@@ -1,4 +1,4 @@
 #! /bin/bash
 
-sudo systemctl enable aws.service
-sudo systemctl start aws.service
+sudo systemctl enable awsprov.service
+sudo systemctl start awsprov.service

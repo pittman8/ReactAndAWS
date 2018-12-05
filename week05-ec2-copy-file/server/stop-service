@@ -1,4 +1,4 @@
 #! /bin/bash
 
-sudo systemctl stop copyFile.service
-sudo systemctl disable copyFile.service
+sudo systemctl stop ec2-copy-file.service
+sudo systemctl disable ec2-copy-file.service

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const instanceId = "i-06272fc145fe42ddc";
-const ec2Ip = "18.235.68.201";
+const instanceId = 'i-06272fc145fe42ddc';
+const ec2Ip = '18.235.68.201';
 
 class Tools extends Component {
+    constructor(props) {
+        super(props);
+        this.ec2Ip = ec2Ip;
+    }
+
     getInstanceStatus = () => {
         const that = this;
         fetch('/get-instance-status?instanceId=' + instanceId)

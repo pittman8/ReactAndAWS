@@ -1,3 +1,3 @@
 #! /bin/bash
 
-sudo systemctl status copyFile.service
+sudo systemctl status ec2-copy-file.service

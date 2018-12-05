@@ -71,9 +71,17 @@ router.get('/associate-elastic-ip', function(request, response) {
     console.log(
         'Associate Elastic IP called:\n' + JSON.stringify(message, null, 4)
     );
-    console.log("\nQuerying instanceId: " + request.query.instanceId + "\n"
-                + "Querying allocationId: " + request.query.allocationId + "\n"
-                + "Querying region: " + request.query.region + "\n");
+    console.log(
+        '\nQuerying instanceId: ' +
+            request.query.instanceId +
+            '\n' +
+            'Querying allocationId: ' +
+            request.query.allocationId +
+            '\n' +
+            'Querying region: ' +
+            request.query.region +
+            '\n'
+    );
     response.send(message);
 });
 
@@ -84,13 +92,13 @@ router.get('/get-instance-status', function(request, response) {
         result: 'success',
         route: '/get-instance-status',
         instanceData: {
-            instanceId: request.query.instanceId,
+            instanceId: request.query.instanceId
         }
     };
     console.log(
         'Get Instance Status called:\n' + JSON.stringify(message, null, 4)
     );
-    console.log("\nQuerying instanceId: " + request.query.instanceId + "\n");
+    console.log('\nQuerying instanceId: ' + request.query.instanceId + '\n');
     response.send(message);
 });
 
@@ -100,7 +108,7 @@ router.get('/reboot-instance', function(request, response) {
     var message = {
         result: 'success',
         route: '/reboot-instance',
-        instanceData: '',
+        instanceData: ''
     };
     console.log('Reboot Instance called:\n' + JSON.stringify(message, null, 4));
     response.send(message);

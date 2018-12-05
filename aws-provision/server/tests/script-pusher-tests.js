@@ -1,5 +1,4 @@
 const request = require('supertest');
-
 const app = require('../app'); //reference to you app.js file
 
 describe('Test script-pusher.js', function() {
@@ -21,8 +20,8 @@ describe('Test script-pusher.js', function() {
                 result: 'success',
                 route: '/script-pusher/copy-get-started',
                 instanceData: '',
-                allocationId: '',
-                region: ''
+                allocationIds: '',
+                regions: ''
             });
     });
 
@@ -43,12 +42,7 @@ describe('Test script-pusher.js', function() {
             .expect({
                 result: 'success',
                 route: '/script-pusher/remove-known-host',
-                instanceData: {
-                    instanceId: 'i-06272fc145fe42ddc'
-                },
-                ec2Ip: '18.235.68.201',
-                allocationId: '',
-                region: ''
+                instanceData: ''
             });
     });
 });
