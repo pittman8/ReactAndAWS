@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
+const instanceId = "i-06272fc145fe42ddc";
+const ec2Ip = "18.235.68.201";
+
 class Tools extends Component {
     getInstanceStatus = () => {
         const that = this;
-        fetch('/get-instance-status')
+        fetch('/get-instance-status?instanceId=' + instanceId)
             .then(function(response) {
                 return response.json();
             })
@@ -40,7 +43,7 @@ class Tools extends Component {
 
     removeKnownHost = () => {
         const that = this;
-        fetch('/script-pusher/remove-known-host')
+        fetch('/script-pusher/remove-known-host?ec2Ip=' + ec2Ip)
             .then(function(response) {
                 return response.json();
             })

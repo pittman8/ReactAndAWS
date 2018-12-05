@@ -62,11 +62,18 @@ router.get('/associate-elastic-ip', function(request, response) {
     var message = {
         result: 'success',
         route: '/associate-elastic-ip',
-        instanceData: ''
+        instanceData: {
+            instanceId: request.query.instanceId
+        },
+        allocationId: request.query.allocationId,
+        region: request.query.region
     };
     console.log(
         'Associate Elastic IP called:\n' + JSON.stringify(message, null, 4)
     );
+    console.log("\nQuerying instanceId: " + request.query.instanceId + "\n"
+                + "Querying allocationId: " + request.query.allocationId + "\n"
+                + "Querying region: " + request.query.region + "\n");
     response.send(message);
 });
 
@@ -76,11 +83,14 @@ router.get('/get-instance-status', function(request, response) {
     var message = {
         result: 'success',
         route: '/get-instance-status',
-        instanceData: ''
+        instanceData: {
+            instanceId: request.query.instanceId,
+        }
     };
     console.log(
         'Get Instance Status called:\n' + JSON.stringify(message, null, 4)
     );
+    console.log("\nQuerying instanceId: " + request.query.instanceId + "\n");
     response.send(message);
 });
 
@@ -90,7 +100,7 @@ router.get('/reboot-instance', function(request, response) {
     var message = {
         result: 'success',
         route: '/reboot-instance',
-        instanceData: ''
+        instanceData: '',
     };
     console.log('Reboot Instance called:\n' + JSON.stringify(message, null, 4));
     response.send(message);

@@ -29,7 +29,9 @@ router.get('/copy-get-started', function(request, response) {
     var message = {
         result: 'success',
         route: '/script-pusher/copy-get-started',
-        instanceData: ''
+        instanceData: '',
+        allocationIds: '',
+        regions: ''
     };
     console.log(
         'Copy Get Started called:\n' + JSON.stringify(message, null, 4)
@@ -40,14 +42,17 @@ router.get('/copy-get-started', function(request, response) {
 router.get('/remove-known-host', function(request, response) {
     // const awsInstanceParams = getAwsInstanceParams.awsEducate();
     // createInstance(awsInstanceParams);
+    let hostName = request.query.ec2Ip;
     var message = {
         result: 'success',
         route: '/script-pusher/remove-known-host',
-        instanceData: ''
+        instanceData: '',
+        ec2Ip: request.query.ec2Ip
     };
     console.log(
         'Remove KnownHost called:\n' + JSON.stringify(message, null, 4)
     );
+    console.log("\nQuerying ec2Ip: " + request.query.ec2Ip + "\n");
     response.send(message);
 });
 

@@ -16,14 +16,17 @@ class App extends Component {
                 architecture: '',
                 instanceId: '',
                 keyName: '',
-                hostName: ''
-            }
+                hostName: '',
+            },
+            allocationId: '',
+            region: ''
         };
 
         this.handler = this.handler.bind(this);
     }
 
     handler(json) {
+
         this.setState({
             result: json.result,
             route: json.route,
@@ -31,8 +34,10 @@ class App extends Component {
                 architecture: json.instanceData.architecture,
                 instanceId: json.instanceData.instanceId,
                 keyName: json.instanceData.keyName,
-                hostName: json.instanceData.hostName
-            }
+                hostName: json.instanceData.hostName,
+            },
+            allocationId: json.allocationId,
+            region: json.region,
         });
     }
 
@@ -44,10 +49,10 @@ class App extends Component {
                     <CreateAssociate handler={this.handler} />
                     <pre>Result: {this.state.result}</pre>
                     <pre>Route: {this.state.route}</pre>
-                    <pre>
-                        Architecture: {this.state.instanceData.architecture}
-                    </pre>
+                    <pre>Architecture: {this.state.instanceData.architecture}</pre>
                     <pre>InstanceId: {this.state.instanceData.instanceId}</pre>
+                    <pre>AllocationId: {this.state.allocationId}</pre>
+                    <pre>Region: {this.state.region}</pre>
                     <pre>Host Address: {this.state.instanceData.hostName}</pre>
                     <pre>KeyName: {this.state.instanceData.keyName}</pre>
                     <RunLocal handler={this.handler} />

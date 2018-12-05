@@ -23,7 +23,9 @@ describe('Test ssh-runner.js', function() {
                 instanceData: {
                     keyName: 'ec2-320-inclass.pem',
                     hostName: '18.235.68.201'
-                }
+                },
+                allocationId: '',
+                region: ''
             });
     });
 
@@ -47,7 +49,9 @@ describe('Test ssh-runner.js', function() {
                 instanceData: {
                     keyName: 'ec2-320-inclass.pem',
                     hostName: '18.235.68.201'
-                }
+                },
+                allocationId: '',
+                region: ''
             });
     });
 });

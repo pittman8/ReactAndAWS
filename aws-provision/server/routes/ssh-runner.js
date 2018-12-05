@@ -65,7 +65,9 @@ router.get('/run-get-started', function(request, response) {
                 instanceData: {
                     keyName: result.identityFile,
                     hostName: result.hostName
-                }
+                },
+                allocationIds: '',
+                regions: ''
             };
             console.log(
                 'Run Get Started called:\n' + JSON.stringify(message, null, 4)
@@ -88,7 +90,9 @@ router.get('/run-ubuntu-setup', function(request, response) {
                 instanceData: {
                     keyName: result.identityFile,
                     hostName: result.hostName
-                }
+                },
+                allocationIds: '',
+                regions: ''
             };
             console.log(
                 'Run Ubuntu Setup called:\n' + JSON.stringify(message, null, 4)
