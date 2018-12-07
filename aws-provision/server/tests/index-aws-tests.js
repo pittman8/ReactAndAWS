@@ -2,8 +2,14 @@ const request = require('supertest');
 
 const app = require('../app'); //reference to you app.js file
 
+const allocationId = 'standard';
+const instanceId = 'i-06272fc145fe42ddc';
+const region = 'us-east-1';
+
 describe('Test index.js', function() {
     it('should call create-educate route', function(done) {
+        // This test prints a RequestExpired warning when I am not currently logged into
+        // an active session on my AWS Educate account
         request(app)
             .get('/create-educate')
             .set('Accept', 'application/json')
@@ -11,7 +17,10 @@ describe('Test index.js', function() {
             .expect(200, done);
     });
 
+
     it('should check create-educate route and check JSON', function(done) {
+        // This test prints a RequestExpired warning when I am not currently logged into
+        // an active session on my AWS Educate account
         request(app)
             .get('/create-educate')
             .set('Accept', 'application/json')
@@ -69,7 +78,14 @@ describe('Test index.js', function() {
 
     it('should call associate-elastic-ip route', function(done) {
         request(app)
-            .get('/associate-elastic-ip')
+            .get(
+                '/associate-elastic-ip?instanceId=' +
+                    instanceId +
+                    '&allocationId=' +
+                    allocationId +
+                    '&region=' +
+                    region
+            )
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200, done);
@@ -77,20 +93,29 @@ describe('Test index.js', function() {
 
     it('should check associate-elastic-ip route and check JSON', function(done) {
         request(app)
-            .get('/associate-elastic-ip')
+            .get(
+                '/associate-elastic-ip?instanceId=' +
+                    instanceId +
+                    '&allocationId=' +
+                    allocationId +
+                    '&region=' +
+                    region
+            )
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200, done)
             .expect({
                 result: 'success',
                 route: '/associate-elastic-ip',
-                instanceData: {}
+                instanceData: { instanceId: instanceId },
+                allocationId: allocationId,
+                region: region
             });
     });
 
     it('should call get-instance-status route', function(done) {
         request(app)
-            .get('/get-instance-status')
+            .get('/get-instance-status?instanceId=' + instanceId)
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200, done);
@@ -98,14 +123,14 @@ describe('Test index.js', function() {
 
     it('should check get-instance-status route and check JSON', function(done) {
         request(app)
-            .get('/get-instance-status')
+            .get('/get-instance-status?instanceId=' + instanceId)
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200, done)
             .expect({
                 result: 'success',
                 route: '/get-instance-status',
-                instanceData: {}
+                instanceData: { instanceId: instanceId }
             });
     });
 

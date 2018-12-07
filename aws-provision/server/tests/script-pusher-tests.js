@@ -1,6 +1,8 @@
 const request = require('supertest');
 const app = require('../app'); //reference to you app.js file
 
+const ec2Ip = '18.235.68.201';
+
 describe('Test script-pusher.js', function() {
     it('should call copy-get-started route', function(done) {
         request(app)
@@ -27,7 +29,7 @@ describe('Test script-pusher.js', function() {
 
     it('should call remove-known-host route', function(done) {
         request(app)
-            .get('/script-pusher/remove-known-host')
+            .get('/script-pusher/remove-known-host?ec2Ip=' + ec2Ip)
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200, done);
@@ -35,14 +37,15 @@ describe('Test script-pusher.js', function() {
 
     it('should check remove-known-host route and check JSON', function(done) {
         request(app)
-            .get('/script-pusher/remove-known-host')
+            .get('/script-pusher/remove-known-host?ec2Ip=' + ec2Ip)
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200, done)
             .expect({
                 result: 'success',
                 route: '/script-pusher/remove-known-host',
-                instanceData: ''
+                instanceData: '',
+                ec2Ip: ec2Ip
             });
     });
 });

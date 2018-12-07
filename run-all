@@ -12,6 +12,7 @@ fi
 
 function runClientServer() {
     cd $1
+    pwd
     try-run-both build
     cd ..
 }

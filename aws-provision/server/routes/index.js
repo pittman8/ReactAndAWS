@@ -10,7 +10,8 @@ router.get('/', function(req, res) {
 });
 
 router.get('/create-educate', function(request, response) {
-    // cannot create instance up on EC2
+    // Cannot create instance up on EC2
+    // Instance creates when logged in and credentials file is updated
     const awsInstanceParams = getAwsInstanceParams.awsEducate();
     createInstance(awsInstanceParams);
     var message = {
