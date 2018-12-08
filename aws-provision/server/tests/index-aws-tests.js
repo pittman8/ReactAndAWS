@@ -17,7 +17,6 @@ describe('Test index.js', function() {
             .expect(200, done);
     });
 
-
     it('should check create-educate route and check JSON', function(done) {
         // This test prints a RequestExpired warning when I am not currently logged into
         // an active session on my AWS Educate account
