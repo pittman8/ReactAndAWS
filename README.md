@@ -1,4 +1,4 @@
-# isit320-pittman-2018
+# React & AWS
 
 I wrote this in class.
 
